@@ -1,0 +1,12 @@
+body{
+  background: rgb(75,0,144);
+  background: linear-gradient(90deg, rgba(75,0,144,1) 0%, rgba(69,203,186,1) 44%, rgba(0,83,144,1) 100%);
+}
+
+/* span {
+  font-size: 18px;
+} */
+
+.list-buttons {
+  min-width: fit-content;
+}

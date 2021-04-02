@@ -1,0 +1,47 @@
+<div class="col-md-8 offset-md-2">
+    <div class="card">
+        <div class="card-header">
+            <h1>Simple ToDo</h1>
+            <h4>Just do it.</h4>
+        </div>
+        <div class="card-body">
+            <h3>Tarea nueva:</h3>
+            <form action="/new-task" method="post">
+                <div class="form-group">
+                    <input type="text" name="task" placeholder="Tengo que..." class="form-control">
+                </div>
+                <button class="btn btn-primary btn-block">Agregar</button>
+            </form>
+        </div>
+        <div class="card-footer">
+            {{#if tasks}}
+            <h2>Tareas</h2>
+            <ul class="list-group">
+                {{#each tasks}}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{#if done}}
+                    <span style="text-decoration:line-through;">
+                        {{task}}
+                    </span>
+                    {{else}}
+                    <span>
+                        {{task}}
+                    </span>
+                    {{/if}}
+                    <div class="list-buttons">
+                        {{#if done}}
+                        <button class="btn btn-dark" onclick="handleUndoTask('{{@key}}')"><i class="fas fa-undo-alt"></i></button>
+                        {{else}}
+                        <button class="btn btn-success" onclick="handleDoTask('{{@key}}')"><i class="fas fa-check"></i></button>
+                        {{/if}}
+                        <button class="btn btn-danger" onclick="handleDeleteTask('{{@key}}')"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+            {{else}}
+            <p>No hay tareas pendientes :D</p>
+            {{/if}}
+        </div>
+    </div>
+</div>
