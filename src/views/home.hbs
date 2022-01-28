@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">
             <h1>Simple ToDo</h1>
-            <h4>Just do it.</h4>
+            <h4>Do it. Now.</h4>
         </div>
         <div class="card-body">
             <h3>Tarea nueva:</h3>
@@ -30,11 +30,14 @@
                     {{/if}}
                     <div class="list-buttons">
                         {{#if done}}
-                        <button class="btn btn-dark" onclick="handleUndoTask('{{@key}}')"><i class="fas fa-undo-alt"></i></button>
+                        <button class="btn btn-dark" onclick="handleUndoTask('{{@key}}')"><i
+                                class="fas fa-undo-alt"></i></button>
                         {{else}}
-                        <button class="btn btn-success" onclick="handleDoTask('{{@key}}')"><i class="fas fa-check"></i></button>
+                        <button class="btn btn-success" onclick="handleDoTask('{{@key}}')"><i
+                                class="fas fa-check"></i></button>
                         {{/if}}
-                        <button class="btn btn-danger" onclick="handleDeleteTask('{{@key}}')"><i class="fas fa-trash-alt"></i></button>
+                        <button class="btn btn-danger" onclick="handleDeleteTask('{{@key}}')"><i
+                                class="fas fa-trash-alt"></i></button>
                     </div>
                 </li>
                 {{/each}}
