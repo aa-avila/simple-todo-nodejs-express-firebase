@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const morgan = require('morgan');
+require('dotenv').config();
 
 const app = express();
 
@@ -9,15 +10,18 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 
 app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', exphbs({
+app.engine(
+  '.hbs',
+  exphbs({
     defaultLayout: 'main',
     extname: '.hbs'
-}));
+  })
+);
 app.set('view engine', '.hbs');
 
 // middlewares
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use(require('./routes/index'));
